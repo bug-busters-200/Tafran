@@ -1,29 +1,79 @@
-<div className="UserHeader">
-  <h1>sign up</h1>
-<!-- 
-  <div className="UserHeader">
-    <form action="/registered" method="POST">  
-    <h1 className="UserTitles" ><i class="fas fa-user"></i> Email</h1>
-    <input type="email" className="UserInput"  name="UserName" onChange={this.handelUserChange.bind(this)} required/>
-    <div>{this.state.UserNameErr}</div>
-    <h1 className="UserTitles" ><i class="fas fa-lock"></i> Password</h1>
-    <input type="password"  name="Password" className="UserInput"  onChange={this.handelUserChange.bind(this)} required/>
-    <div>{this.state.PasswordErr}</div>
-    <h1 className="UserTitles"><i class="fas fa-map-marked-alt"></i> Location</h1>
-    <input type="text" name="Location" className="UserInput"  onChange={this.handelUserChange.bind(this)} required/>
-    <h1 className="UserTitles" ><i class="fas fa-mobile-alt"></i> Phone Number</h1>
-    <input type="text" name="PhoneNumber" className="UserInput"onChange={this.handelUserChange.bind(this)} required />
-    <h1 className="UserTitles"><i class="fas fa-store"></i> The Restaurant</h1>
-    <input type="text" className="UserInput" name="Restaurant" onChange={this.handelUserChange.bind(this)}required />
-    <h1 className="UserTitles"><i class="fas fa-dollar-sign"></i>Restaurant Info</h1>
-    <input type="text" className="UserInput" name="PriceandMeal" onChange={this.handelUserChange.bind(this)} />
-    <div>{this.state.PriceandMealErr}</div>
+<body>
+<!-- email, password, location, phone number, resturant , price and meals (description for the resturant it self) -->
 
-    <button type="submit" className="ButtonLog" >register</button>
-    </form>
-    </div>
-    </form>
-    </div> -->
-    
+<div class="all">
+    <div ng-controller="signup">
+  <div class="container" >
 
-    </div>
+    <form name = "info">
+
+      <div class="form-group">
+        <!-- <label  for="email"  >Email</label> -->
+        <p style="text-align: left;">Email</p>
+        <input type="email" id ="email" class="form-control" placeholder="Enter your Email" name="email" ng-model="email" ng-required="true"/>
+        <i class="fas fa-envelope fa-lg" ></i>
+        <div ng-show = " info.email.$touched && info.email.$invalid">
+          <small >Please Enter a vaild Email</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <p >password</p>
+        
+        <input type="password"  id ="pwd" class="form-control" placeholder="Enter your Password" name="Password" ng-model="password"  ng-required="true"/>
+        <i class="fas fa-lock fa-lg" ></i>
+        <div ng-show = " info.Password.$touched && info.Password.$invalid">
+            <small >Please Enter a Password</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <p for="loc">Location</p>
+        <input type="text" id = "loc" class="form-control" placeholder="Enter your Location" name="location" ng-model="location" ng-required="true"/>
+        <i class="fas fa-map-marker-alt fa-lg" ></i>
+        <div ng-show = " info.location.$touched && info.location.$invalid">
+            <small >Please Enter a Location</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <p for="phN">Phone Number</p>
+
+        <input type="tel" id ="phN" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" 
+          class="form-control" placeholder="Enter your Phone Number" 
+          name="PhoneNumber" ng-model="phoneNumber" 
+          ng-required="true" 
+        />
+        <i class="fas fa-mobile-alt fa-lg" ></i>
+
+        <div ng-show = " info.PhoneNumber.$touched && info.PhoneNumber.$invalid">
+            <small >Please Enter Phone Number </small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <p for="resName">Resturant Name</p>
+        <input type="text" id ="resName" class="form-control" 
+          placeholder="Enter your Restaurant  Name" name="resturantName" 
+          ng-model="resturantName" ng-required="true" 
+        />
+        <i class="fas fa-store-alt fa-lg" ></i>
+        <div ng-show = " info.resturantName.$touched && info.resturantName.$invalid">
+            <small >Please Enter Restaurant  Name </small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <p for="desc">Description</p>
+        <input type="text"  id = "desc" class="form-control" placeholder="Enter your Restaurant Information" name="description" ng-model="description" /><br>
+        <i class="fas fa-utensils fa-lg" ></i>
+      </div>
+      <div class="form-group">
+        <button type="submit" value ="Submit"  class="btn btn-success" ng-click="fire()" ng-disabled = "info.$invalid" > Submit </button>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+</body>
+
