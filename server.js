@@ -168,7 +168,7 @@ app.post('/login', function(req, res) {
 	var username = req.body.UserName;
 	var password = req.body.Password;
 	//const Find = 'select'`+re+`;
-	const user = "SELECT * From usersInfo Where Name =  '" + username + "' and Password = '" + password + "'";
+	const user = "SELECT * From usersInfo Where Email =  '" + username + "' and Password = '" + password + "'";
 
 	connection.query(user, (err, result) => {
 		if (result) {
