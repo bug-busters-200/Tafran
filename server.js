@@ -1,16 +1,16 @@
 const express = require('express');
 const app = express();
-var cors = require('cors')
+var cors = require('cors');
 const router = express.Router();
-const PORT = 5000;
+const PORT = 3000;
 const bodyparser = require('body-parser');
 const mysql = require('mysql');
 var expressValidator = require('express-validator');
 const expressSession = require('express-session');
 
-app.use(cors())
+app.use(cors());
 app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({	extended: true }));
+app.use(bodyparser.urlencoded({ extended: true }));
 
 app.use(expressValidator({ save: 'Theapp', saveUninitialized: false, resave: false }));
 
@@ -33,7 +33,7 @@ app.use(function(req, res, next) {
 	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 	next();
 });
-// getting the price from frontEnd and send the meals back
+
 app.post('/getMealsByPrice', (req, res) => {
 	const price = req.body.price;
 	let serchItem =
@@ -48,29 +48,29 @@ app.post('/getMealsByPrice', (req, res) => {
     order by m.name, r.name, mt.size, price`;
 
 	connection.query(serchItem, (err, result) => {
-		if(result){
+		if (result) {
 			return res.send(result);
 		}
-		if (err){
-			console.log(err)
+		if (err) {
+			console.log(err);
 		}
 	});
 });
 
 // getting the meal from frondEnd and send the restauransts back
 app.post('/getRest', (req, res) => {
-	const restId = req.body.restId;
+	const restId = req.body.info;
 	let serchItem =
 		`SELECT r.name, phone, address
     FROM restaurants r
-    Where r.Id = N'` +
+    Where r.Id = '` +
 		restId +
 		`'`;
 	console.log(restId);
 	connection.query(serchItem, (err, result) => {
-		if (err){
-			console.log(err)
-		} 
+		if (err) {
+			console.log(err);
+		}
 		console.log(result);
 		res.send(result);
 	});
@@ -168,19 +168,19 @@ app.post('/login', function(req, res) {
 	var username = req.body.UserName;
 	var password = req.body.Password;
 	//const Find = 'select'`+re+`;
-	const user = "SELECT * From usersInfo Where Name =  '" + username + "' and Password = '"+password +"'";
+	const user = "SELECT * From usersInfo Where Email =  '" + username + "' and Password = '"+password +"'";
 	
 	connection.query(user, (err, result) => {
-		if(result){
-			console.log(result)
+		if (result) {
+			console.log(result);
 			return res.send(result);
 		}
-		if (err){
-			console.log(err)
+		if (err) {
+			console.log(err);
 		}
 	});
 
-	//res.send('Hi');
+	//res.send('Hi')
 });
 
 /////////////////////////////////////USER AREA END ////////////////////////////////////////

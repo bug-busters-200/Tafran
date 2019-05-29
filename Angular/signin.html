@@ -1,12 +1,35 @@
 <body>
-  <div class="well">
-    <h1>signin</h1>
-    <form  >
-      {{errorMessage}}
-    <h2><pre>username: <input type="text" placeholder="username" ng-model ="username"></pre></h2>
-    <h2><pre>password:<input type="password" placeholder="password" ng-model ="password"></pre></h2>
-    
-    <button class="btn btn-primary" ng-click="login()" >login</button>
-    </form>
+  <!-- email, password, location, phone number, resturant , price and meals (description for the resturant it self) -->
+  
+  <div class="all">
+    <div class="container" >
+      <form name = "info" style="padding: 10px">
+          <h4 style="margin-right: 550px; color:aliceblue" >{{errorMessage}}</h4>
+      
+        <div class="form-group">
+          <!-- <label  for="email"  >Email</label> -->
+          <p style="text-align: left;">Email</p>
+          <input  style="width: 40%" type="email" id ="email" class="form-control" placeholder="Enter your Email" name="email" ng-model="email" ng-required="true"/>
+          <i class="fas fa-envelope fa-lg" ></i>
+          <div ng-show = " info.email.$touched && info.email.$invalid">
+            <small >Please Enter a vaild Email</small>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <p >password</p>
+          
+          <input style="width: 40%" type="password"  id ="pwd" class="form-control" placeholder="Enter your Password" name="Password" ng-model="password"  ng-required="true"/>
+          <i class="fas fa-lock fa-lg" ></i>
+          <div ng-show = " info.Password.$touched && info.Password.$invalid">
+              <small >Please Enter a Password</small>
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+          <button style="margin-right: 150px" type="submit" value ="Submit"  class="btn btn-success" ng-click="login()" ng-disabled = "info.$invalid" > Submit </button>
+        </div>
+      </form>
+    </div>
   </div>
-</body>
+  </body>
