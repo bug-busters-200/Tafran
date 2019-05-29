@@ -18,6 +18,10 @@ angular.module('app', [ 'ui.bootstrap', 'ngRoute' ]).config(function($routeProvi
 			templateUrl: './signin.html',
 			controller: 'signin'
 		})
+		.when('/profile', {
+			templateUrl: './profile.html',
+			controller: 'profile'
+		})
 		.when('/ThankYouPage', {
 			templateUrl: './ThankYouPage.html'
 		});
