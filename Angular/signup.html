@@ -9,30 +9,47 @@
       <div class="form-group">
         <!-- <label  for="email"  >Email</label> -->
         <p style="text-align: left;">Email</p>
-        <input type="email" id ="email" class="form-control" placeholder="Enter your Email" name="email" ng-model="email" ng-required="true"/>
+        <input type="email" id ="email" class="form-control"
+           placeholder="Enter your Email" 
+           name="email" ng-model="email"
+           ng-required="true"
+        />
         <i class="fas fa-envelope fa-lg" ></i>
         <div ng-show = " info.email.$touched && info.email.$invalid">
           <small >Please Enter a vaild Email</small>
         </div>
+
       </div>
 
       <div class="form-group">
         <p >password</p>
         
-        <input type="password"  id ="pwd" class="form-control" placeholder="Enter your Password" name="Password" ng-model="password"  ng-required="true"/>
+        <input type="password"  id ="pwd" class="form-control" 
+          placeholder="Enter your Password" 
+          name="Password" 
+          ng-model="password"  
+          ng-required="true"
+        />
         <i class="fas fa-lock fa-lg" ></i>
         <div ng-show = " info.Password.$touched && info.Password.$invalid">
             <small >Please Enter a Password</small>
         </div>
+
       </div>
 
       <div class="form-group">
         <p for="loc">Location</p>
-        <input type="text" id = "loc" class="form-control" placeholder="Enter your Location" name="location" ng-model="location" ng-required="true"/>
+        <input type="text" id = "loc" class="form-control" 
+          placeholder="Enter your Location" 
+          name="location" 
+          ng-model="location" 
+          ng-required="true"
+        />
         <i class="fas fa-map-marker-alt fa-lg" ></i>
         <div ng-show = " info.location.$touched && info.location.$invalid">
-            <small >Please Enter a Location</small>
+            <small>Please Enter a Location</small>
         </div>
+
       </div>
 
       <div class="form-group">
@@ -64,9 +81,15 @@
 
       <div class="form-group">
         <p for="desc">Description</p>
-        <input type="text"  id = "desc" class="form-control" placeholder="Enter your Restaurant Information" name="description" ng-model="description" /><br>
+        <input type="text"  id = "desc" class="form-control" 
+          placeholder="Enter your Restaurant Information" 
+          name="description" 
+          ng-model="description" 
+        /><br>
+
         <i class="fas fa-utensils fa-lg" ></i>
       </div>
+      
       <div class="form-group">
         <button type="submit" value ="Submit"  class="btn btn-success" ng-click="fire()" ng-disabled = "info.$invalid" > Submit </button>
       </div>

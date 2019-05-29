@@ -94,30 +94,30 @@ app.use(express.static('Angular'));
 // });
 
 app.post('/registered', function(req, res, next) {
-	const User = req.body.price;
-	// req.check('UserName', 'Invald Email Plese Try Another One').isEmail();
-	// req.check('Password', 'The Password Should be Numbers').isNumeric().isLength({ min: 8 });
+	req.check('Email', 'Invald Email Plese Try Another One').isEmail();
+	req.check('Password', 'The Password Should be Numbers').isLength({ min: 8 });
 	var err = req.validationErrors();
 
 	let newRestaurant = {
-		Name: req.body.UserName,
-		password: req.body.Password,
-		location: req.body.Location,
-		phonenumber: req.body.PhoneNumber,
-		TheRestaurant: req.body.Restaurant,
-		MealsandPrice: req.body.PriceandMeal
+		Email: req.body.email,
+		Password: req.body.password,
+		Location: req.body.location,
+		Phonenumber: req.body.phoneNumber,
+		TheRestaurantName: req.body.resturantName,
+		RestaurantDescription: req.body.description
 	};
-	// const Check = `SELECT * From userInfo Where Name = ${req.body.UserName}`;
-	// const added = 'INSERT INTO usersInfo SET ?';
+	const Check = `SELECT * From userInfo Where Email = ${req.body.email}`;
+	// console.log(Check);
+	const added = 'INSERT INTO usersInfo SET ?';
 
-	console.log(newRestaurant);
+	// console.log(newRestaurant);
 
-	UsersConection.query(added, newRestaurant, (err, result) => {
-		console.log(newRestaurant);
-		if (err) throw err;
-		console.log(result);
-		console.log('User Was Added');
-	});
+	// UsersConection.query(added, newRestaurant, (err, result) => {
+	// 	console.log(newRestaurant);
+	// 	if (err) throw err;
+	// 	console.log(result);
+	// 	console.log('User Was Added');
+	// });
 
 	// SEND EMAIL START
 	const nodemailer = require('nodemailer');
@@ -135,7 +135,7 @@ app.post('/registered', function(req, res, next) {
 
 	var mailOptions = {
 		from: 'tafran56@gmail.com',
-		to: `${req.body.UserName}`,
+		to: `${req.body.email}`,
 		subject: 'TAFRAN.inc Registerd in TAFRAN',
 		text: `Thank You For Registerd We Will Be in Toch With You Soon`,
 		html: `<h1 style="color:#000">TAFRAN.inc</h1>
@@ -161,7 +161,7 @@ app.post('/registered', function(req, res, next) {
 
 	// SEND EMAIL END
 
-	res.redirect('http://localhost:3000/ThankYouPage');
+	res.redirect('http://localhost:5000/ThankYouPage.html');
 });
 
 app.post('/login', function(req, res) {
