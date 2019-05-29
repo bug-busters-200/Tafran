@@ -3,12 +3,20 @@
   <input ng-model = "input" type="number" placeholder="Enter your budget here">
   <button class="btn-success" style="width: 6%" ng-click = "search()">search<img src="https://lh3.googleusercontent.com/sYwSR9uDYdDtkHMpS52BxNLxNdEOMqbxulQkTYE5KXc4hXEAL-1EEWad4ca6wDsKDCI=w412-h220-rw" style="width: 30%"/>
   </button><br><br><br>
-       <div ng-repeat = "meal in meals" class="well">
+       <div ng-hide="showMeals === false" ng-repeat = "meal in meals" class="well">
         <strong>Meal Name:</strong> {{meal.mealName}}
         <strong>Restraunt Name:</strong> {{meal.restName}}
         <strong>Meal Size:</strong> {{meal.size}}
         <strong>Meal Price:</strong> {{meal.price}}
-        <button >More Info</button>
-       </div>
-
+        <button class=" btn-primary"  ng-click = "showInfo(meal.restId)">More Info</button>   
+      
+      </div>
+          <div class="well" style="padding: 20px" ng-show="showDesc === true" ng-repeat = "resturent in resturents">
+            <strong>resturent address:</strong> {{resturent.address}}
+            <strong>Restraunt Name:</strong> {{resturent.name}}
+            <strong>resturent phone:</strong> {{resturent.phone}}
+            <button class=" btn-primary"  ng-click ="redirectToProfile">More Info</button>   
+          </div>
+      
+    
 </body>

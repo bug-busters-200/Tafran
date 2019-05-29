@@ -10,7 +10,7 @@ angular.module( "app")
 			method:'post',
 			url:'/login',
 			data:JSON.stringify({
-				UserName:$scope.username,
+				UserName:$scope.email,
 				Password:$scope.password
 			}),
 		headers: {'Content-Type': "application/json; charset = utf-8"}
