@@ -41,6 +41,5 @@ angular.module('app').controller('food', function($scope, $http, $location, $roo
 			.catch(function(error) {
 				console.log(error);
 			});
-
 	};
 });
