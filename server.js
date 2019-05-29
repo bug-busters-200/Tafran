@@ -1,17 +1,17 @@
 const express = require('express');
 const app = express();
+var cors = require('cors')
 const router = express.Router();
 const PORT = 5000;
 const bodyparser = require('body-parser');
 const mysql = require('mysql');
 var expressValidator = require('express-validator');
 const expressSession = require('express-session');
+
+app.use(cors())
 app.use(bodyparser.json());
-app.use(
-	bodyparser.urlencoded({
-		extended: true
-	})
-);
+app.use(bodyparser.urlencoded({	extended: true }));
+
 app.use(expressValidator({ save: 'Theapp', saveUninitialized: false, resave: false }));
 
 const connection = mysql.createConnection({
@@ -36,7 +36,6 @@ app.use(function(req, res, next) {
 // getting the price from frontEnd and send the meals back
 app.post('/getMealsByPrice', (req, res) => {
 	const price = req.body.price;
-
 	let serchItem =
 		`SELECT  m.name as mealName,r.name as restName,mt.size, price,r.id as restId
     FROM restmealmenue rmm
@@ -49,9 +48,12 @@ app.post('/getMealsByPrice', (req, res) => {
     order by m.name, r.name, mt.size, price`;
 
 	connection.query(serchItem, (err, result) => {
-		if (err) throw err;
-		console.log(result);
-		res.send(result);
+		if(result){
+			return res.send(result);
+		}
+		if (err){
+			console.log(err)
+		}
 	});
 });
 
@@ -64,9 +66,11 @@ app.post('/getRest', (req, res) => {
     Where r.Id = N'` +
 		restId +
 		`'`;
-
+	console.log(restId);
 	connection.query(serchItem, (err, result) => {
-		if (err) throw err;
+		if (err){
+			console.log(err)
+		} 
 		console.log(result);
 		res.send(result);
 	});
@@ -74,24 +78,25 @@ app.post('/getRest', (req, res) => {
 
 // The connection made
 connection.connect((err) => {
-	if (err) {
-		console.log('There is a error :', err);
-	}
-	console.log('The Conection made Successfully');
+	// if (err) {
+	// 	console.log('There is a error :', err);
+	// }
+	console.log('The db Conection made Successfully');
 });
 
 // THE SERVER
-app.use(express.static('public'));
+app.use(express.static('Angular'));
 
 //////////////////////////////////////// USER AREA//////////////////////////
-app.get('/registered', (req, res) => {
-	res.render('index', { title: 'TheUserInfo', success: req.session.success, errors: req.session.errors });
-	req.session.errors = null;
-});
+// app.get('/registered', (req, res) => {
+// 	res.render('index', { title: 'TheUserInfo', success: req.session.success, errors: req.session.errors });
+// 	req.session.errors = null;
+// });
+
 app.post('/registered', function(req, res, next) {
 	const User = req.body.price;
-	req.check('UserName', 'Invald Email Plese Try Another One').isEmail();
-	req.check('Password', 'The Password Should be Numbers').isNumeric().isLength({ min: 8 });
+	// req.check('UserName', 'Invald Email Plese Try Another One').isEmail();
+	// req.check('Password', 'The Password Should be Numbers').isNumeric().isLength({ min: 8 });
 	var err = req.validationErrors();
 
 	let newRestaurant = {
@@ -102,10 +107,10 @@ app.post('/registered', function(req, res, next) {
 		TheRestaurant: req.body.Restaurant,
 		MealsandPrice: req.body.PriceandMeal
 	};
-	const Check = `SELECT * From userInfo Where Name = ${req.body.UserName}`;
-	const added = 'INSERT INTO usersInfo SET ?';
+	// const Check = `SELECT * From userInfo Where Name = ${req.body.UserName}`;
+	// const added = 'INSERT INTO usersInfo SET ?';
 
-	console.log(Check);
+	console.log(newRestaurant);
 
 	UsersConection.query(added, newRestaurant, (err, result) => {
 		console.log(newRestaurant);
@@ -160,14 +165,27 @@ app.post('/registered', function(req, res, next) {
 });
 
 app.post('/login', function(req, res) {
-	console.log(req.body.UserName);
-	const Find = 'select'`+re+`;
-	res.send('Hi');
+	var username = req.body.UserName;
+	var password = req.body.Password;
+	//const Find = 'select'`+re+`;
+	const user = "SELECT * From usersInfo Where Name =  '" + username + "' and Password = '"+password +"'";
+	
+	connection.query(user, (err, result) => {
+		if(result){
+			console.log(result)
+			return res.send(result);
+		}
+		if (err){
+			console.log(err)
+		}
+	});
+
+	//res.send('Hi');
 });
 
 /////////////////////////////////////USER AREA END ////////////////////////////////////////
 
-app.get('/', (req, res, next) => res.json({ Start: 'The First Get' }));
+// app.get('/', (req, res, next) => res.json({ Start: 'The First Get' }));
 
 module.exports = router;
 app.listen(PORT, () => console.log('The Server is working on ' + PORT));
