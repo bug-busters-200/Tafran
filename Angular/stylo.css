@@ -56,6 +56,28 @@ input[disabled="disabled"] {
     color: #aaa;
 }
 
+html,body{
+    height: 100%;
+}
+.container{
+   height: 100%;
+   align-content: center;
+}
+
+.image_outer_container{
+   margin-top: auto;
+   margin-bottom: auto;
+   border-radius: 50%;
+   position: relative;
+}
+/*  */
+.image_inner_container img{
+   height: 300px;
+   width: 300px;
+   border-radius: 50%;
+   border: 5px solid white;
+}
+
 
 
 
