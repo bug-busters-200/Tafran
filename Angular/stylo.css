@@ -1,5 +1,4 @@
 body {
-<<<<<<< HEAD
     background: url(./images/fruit.jpg) no-repeat center  
 }
 .all {
@@ -10,17 +9,6 @@ body {
     background: #517291;
     opacity: .9;
 
-=======
-	background: url(./images/fruit.jpg) no-repeat center center fixed;
-}
-.all {
-	border: 2px solid black;
-	width: 40%;
-	padding: 20px 0px;
-	margin: 50px 450px;
-	background: #33495e;
-	opacity: .9;
->>>>>>> 20c76e732ade42d2533cd964233875490febaa3e
 }
 .form-group {
 	position: relative;

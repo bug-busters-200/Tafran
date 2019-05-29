@@ -94,8 +94,8 @@ app.use(express.static('Angular'));
 // });
 
 app.post('/registered', function(req, res, next) {
-	req.check('Email', 'Invald Email Plese Try Another One').isEmail();
-	req.check('Password', 'The Password Should be Numbers').isLength({ min: 8 });
+	// req.check('Email', 'Invald Email Plese Try Another One').isEmail();
+	// req.check('Password', 'The Password Should be Numbers').isLength({ min: 8 });
 	var err = req.validationErrors();
 
 	let newRestaurant = {
@@ -106,18 +106,18 @@ app.post('/registered', function(req, res, next) {
 		TheRestaurantName: req.body.resturantName,
 		RestaurantDescription: req.body.description
 	};
-	const Check = `SELECT * From userInfo Where Email = ${req.body.email}`;
+	// const Check = `SELECT * From userInfo Where Email = ${req.body.email}`;
 	// console.log(Check);
 	const added = 'INSERT INTO usersInfo SET ?';
 
 	// console.log(newRestaurant);
 
-	// UsersConection.query(added, newRestaurant, (err, result) => {
-	// 	console.log(newRestaurant);
-	// 	if (err) throw err;
-	// 	console.log(result);
-	// 	console.log('User Was Added');
-	// });
+	UsersConection.query(added, newRestaurant, (err, result) => {
+		console.log(newRestaurant);
+		if (err) throw err;
+		console.log(result);
+		console.log('User Was Added');
+	});
 
 	// SEND EMAIL START
 	const nodemailer = require('nodemailer');
@@ -161,8 +161,9 @@ app.post('/registered', function(req, res, next) {
 
 	// SEND EMAIL END
 
-	res.redirect('http://localhost:5000/ThankYouPage.html');
+	res.redirect('http://localhost:3000/ThankYouPage.html');
 });
+
 
 app.post('/login', function(req, res) {
 	var username = req.body.UserName;
