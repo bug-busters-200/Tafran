@@ -1,85 +1,75 @@
 body {
-    background: url(./images/fruit.jpg) no-repeat center center fixed
+	background: url(./images/fruit.jpg) no-repeat center center fixed;
 }
 .all {
-    border: 2px solid black;
-    width: 40%;
-    padding: 20px 0px;
-    margin: 50px 450px;
-    background: #33495e;
-    opacity: .9;
-
+	border: 2px solid black;
+	width: 40%;
+	padding: 20px 0px;
+	margin: 50px 450px;
+	background: #33495e;
+	opacity: .9;
 }
 .form-group {
-    position: relative;
+	position: relative;
 }
-.btn{
-   position: absolute;
-   left: 240px;
-   top: -20px
+.btn {
+	position: absolute;
+	left: 240px;
+	top: -20px;
 }
 .form-group p {
-    color: #5cb85c;
-    text-align: left;
+	color: #5cb85c;
+	text-align: left;
 }
 
 .form-group small {
-    position: absolute;
-    color :red;
-    left :10px;
-    top:66px;
-
+	position: absolute;
+	color: red;
+	left: 10px;
+	top: 66px;
 }
-
 
 input.ng-invalid.ng-touched {
-    border : 2px solid red;
-    transition: .5s;
+	border: 2px solid red;
+	transition: .5s;
 }
 input[disabled="disabled"] {
-    opacity: 0.4;
-    cursor: not-allowed !important;
+	opacity: 0.4;
+	cursor: not-allowed !important;
 }
 
 .form-group input {
-    padding-left: 40px;
-    width: 50%;
+	padding-left: 40px;
+	width: 50%;
 }
-
-
 
 .form-group i {
-    position: absolute;
-    left: 0;
-    top: 40px;
-    padding-left: 10px;
-    color: #aaa;
+	position: absolute;
+	left: 0;
+	top: 40px;
+	padding-left: 10px;
+	color: #aaa;
 }
 
-html,body{
-    height: 100%;
+html,
+body {
+	height: 100%;
 }
-.container{
-   height: 100%;
-   align-content: center;
+.container {
+	height: 100%;
+	align-content: center;
 }
 
-.image_outer_container{
-   margin-top: auto;
-   margin-bottom: auto;
-   border-radius: 50%;
-   position: relative;
+.image_outer_container {
+	margin-top: auto;
+	margin-bottom: auto;
+	border-radius: 50%;
+	position: relative;
 }
 /*  */
-.image_inner_container img{
-   height: 300px;
-   width: 300px;
-   border-radius: 50%;
-   border: 5px solid white;
+.image_inner_container img {
+	height: 300px;
+	width: 300px;
+	border-radius: 50%;
+	border: 5px solid white;
 }
-
-
-
-
-
-
