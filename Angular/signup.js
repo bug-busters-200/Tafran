@@ -2,6 +2,7 @@ angular.module( "app")
 
 
 .controller("signup",function($scope,$http,$location,$rootScope){
-  console.log($scope.email);
-  
+  $scope.fire= function (){
+    console.log($scope.email);
+  }
 })
