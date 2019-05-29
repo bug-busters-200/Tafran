@@ -27,6 +27,10 @@ angular.module( "app" ,['ui.bootstrap','ngRoute'])
   controller: "signin"
 })
 
+.when("/profile", {
+  templateUrl:"./profile.html",
+  controller: "profile"
+})
 
 .when("/ThankYouPage",{
   templateUrl:"./ThankYouPage.html",
