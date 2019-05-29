@@ -1,4 +1,4 @@
-body {
+ /* body {
     background: url(./images/fruit.jpg) no-repeat center center fixed
 }
 .all {
@@ -55,10 +55,10 @@ input[disabled="disabled"] {
     padding-left: 10px;
     color: #aaa;
 }
-
+/* 
 html,body{
     height: 100%;
-}
+} */
 .container{
    height: 100%;
    align-content: center;
@@ -70,13 +70,13 @@ html,body{
    border-radius: 50%;
    position: relative;
 }
-/*  */
-.image_inner_container img{
+
+ .image_inner_container img{
    height: 300px;
    width: 300px;
    border-radius: 50%;
    border: 5px solid white;
-}
+} 
 
 
 
