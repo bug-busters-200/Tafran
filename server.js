@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 var cors = require('cors')
 const router = express.Router();
-const PORT = 5000;
+const PORT = 3000;
 const bodyparser = require('body-parser');
 const mysql = require('mysql');
 var expressValidator = require('express-validator');
@@ -33,7 +33,7 @@ app.use(function(req, res, next) {
 	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 	next();
 });
-// getting the price from frontEnd and send the meals back
+
 app.post('/getMealsByPrice', (req, res) => {
 	const price = req.body.price;
 	let serchItem =
@@ -180,7 +180,7 @@ app.post('/login', function(req, res) {
 		}
 	});
 
-	//res.send('Hi');
+	//res.send('Hi')
 });
 
 /////////////////////////////////////USER AREA END ////////////////////////////////////////

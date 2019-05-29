@@ -5,7 +5,7 @@ angular.module( "app")
 	 
 	
   $scope.login=function(){
-		//console.log($scope.username)
+		console.log($scope.username)
 		$http({
 			method:'post',
 			url:'/login',
@@ -15,9 +15,10 @@ angular.module( "app")
 			}),
 		headers: {'Content-Type': "application/json; charset = utf-8"}
 		}).then( (data)=>{
-			console.log(data)
 			if(data.data.length !== 0){
-				$location.path('/'); 
+				console.log(data.data)
+				$rootScope.data = data.data
+				$location.path('/profile'); 
 			}else{
 				$scope.errorMessage = "username or passowrd is incorrect"
 			}
