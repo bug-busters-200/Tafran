@@ -1,13 +1,14 @@
 body {
-	background: url(./images/fruit.jpg) no-repeat center center fixed;
+    background: url(./images/fruit.jpg) no-repeat center  
 }
 .all {
-	border: 2px solid black;
-	width: 40%;
-	padding: 20px 0px;
-	margin: 50px 450px;
-	background: #33495e;
-	opacity: .9;
+    border: 2px solid black;
+    width: 40%;
+    padding: 20px 10px;
+    margin: 50px 450px;
+    background: #517291;
+    opacity: .9;
+
 }
 .form-group {
 	position: relative;
