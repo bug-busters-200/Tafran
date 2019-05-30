@@ -10,7 +10,7 @@
       <div class="form-group">
         <!-- <label  for="email"  >Email</label> -->
         <p style="text-align: left;">Email</p>
-        <input type="email" id ="email" class="form-control" placeholder="Enter your Email" name="email" ng-model="email" ng-required="true"/>
+        <input type="email" id ="email"  style="width: 44%;" class="form-control" placeholder="Enter your Email" name="email" ng-model="email" ng-required="true"/>
         <i class="fas fa-envelope fa-lg" ></i>
         <div ng-show = " info.email.$touched && info.email.$invalid">
           <small >Please Enter a vaild Email</small>
@@ -69,7 +69,7 @@
         <i class="fas fa-utensils fa-lg" ></i>
       </div>
       <div class="form-group">
-        <button type="submit" value ="Submit"  class="btn btn-success" ng-click="fire()" ng-disabled = "info.$invalid" > Submit </button>
+        <button type="submit" value ="Submit"  id="btnn" class="btn btn-success" ng-click="fire()" ng-disabled = "info.$invalid" > Submit </button>
       </div>
     </form>
   </div>

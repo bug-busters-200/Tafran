@@ -12,7 +12,7 @@ body {
 .form-group {
 	position: relative;
 }
-.btn {
+#btnn {
 	position: absolute;
 	left: 240px;
 	top: -20px;
@@ -40,7 +40,7 @@ input[disabled="disabled"] {
 
 .form-group input {
 	padding-left: 40px;
-	width: 50%;
+	width: 44%;
 }
 
 .form-group i {
@@ -48,13 +48,13 @@ input[disabled="disabled"] {
 	left: 0;
 	top: 40px;
 	padding-left: 10px;
-	color: #aaa;
+	color: rgb(134, 122, 122);
 }
-
+/* 
 html,
 body {
 	height: 100%;
-}
+} */
 .container {
 	height: 100%;
 	align-content: center;
