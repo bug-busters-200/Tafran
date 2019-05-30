@@ -13,7 +13,7 @@ angular.module('app').controller('food', function($scope, $http, $location, $roo
 		})
 			.then(function(response) {
 				$scope.meals = response.data;
-				console.log('data from frontEnd' , $scope.meals);
+				console.log('data from frontEnd', $scope.meals);
 			})
 			.catch(function(error) {
 				console.log(error);
@@ -21,22 +21,22 @@ angular.module('app').controller('food', function($scope, $http, $location, $roo
 	};
 
 	$scope.showInfo = function(restId) {
-	// 	console.log(restId)
-	
-	// }
+		// 	console.log(restId)
+
+		// }
 		$http({
 			method: 'post',
 			url: '/getRest',
 			data: JSON.stringify({
-				info:  restId 
+				info: restId
 			}),
 			headers: { 'Content-Type': 'application/json' }
 		})
 			.then(function(data) {
-				$scope.resturents = data.data
+				$scope.resturents = data.data;
 				console.log($scope.resturents);
-				$scope.showDesc = true
-				$scope.showMeals = false
+				$scope.showDesc = true;
+				$scope.showMeals = false;
 			})
 			.catch(function(error) {
 				console.log(error);
