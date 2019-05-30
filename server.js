@@ -106,10 +106,11 @@ app.post('/registered', function(req, res, next) {
 		TheRestaurantName: req.body.resturantName,
 		RestaurantDescription: req.body.description
 	};
-	// const Check = `SELECT * From userInfo Where Email = ${req.body.email}`;
-	// console.log(Check);
+	const Check = `SELECT * From userInfo Where Email = ${req.body.email}`;
+	console.log(Check);
 	const added = 'INSERT INTO usersInfo SET ?';
-
+	res.send(Check);
+	console.log(Check);
 	// console.log(newRestaurant);
 
 	UsersConection.query(added, newRestaurant, (err, result) => {
