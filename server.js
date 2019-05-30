@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 var cors = require('cors');
 const router = express.Router();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const bodyparser = require('body-parser');
 const mysql = require('mysql');
 var expressValidator = require('express-validator');
@@ -106,10 +106,11 @@ app.post('/registered', function(req, res, next) {
 		TheRestaurantName: req.body.resturantName,
 		RestaurantDescription: req.body.description
 	};
-	// const Check = `SELECT * From userInfo Where Email = ${req.body.email}`;
-	// console.log(Check);
+	const Check = `SELECT * From userInfo Where Email = ${req.body.email}`;
+	console.log(Check);
 	const added = 'INSERT INTO usersInfo SET ?';
-
+	res.send(Check);
+	console.log(Check);
 	// console.log(newRestaurant);
 
 	UsersConection.query(added, newRestaurant, (err, result) => {

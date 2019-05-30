@@ -15,7 +15,7 @@ angular.module('app').controller('signup', function($scope, $http, $location, $r
 		})
 			.then((data) => {
 				console.log(data);
-				$location.path('/profile');
+				$location.path('/signin');
 			})
 			.catch((err) => {
 				console.log(err);
