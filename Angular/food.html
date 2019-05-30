@@ -3,17 +3,17 @@
   <h1 style="font-family: Raleway">Enter Your Budget Below</h1>
   <br>
   <input ng-model = "input" type="number" placeholder="Enter your budget here" class="form-control" style="width: 35% ; margin-left:33%">
-  <button type="button" class="btn btn-primary" style="width: 7%; margin-left:3%; margin-top:1%" ng-click = "search()"><strong>search</strong> <i class="fas fa-search"></i>
+  <button type="button" class="btn btn-primary" style="width: 7%; margin-top:1%" ng-click = "search()"><strong>search</strong> <i class="fas fa-search"></i>
   </button>
   <br><br><br>
-       <div ng-hide="showMeals === false" ng-repeat = "meal in meals" class="well" style="width: 50%; margin-left: 25%">
+       <div ng-hide="showMeals === false" ng-repeat = "meal in meals" class="well" style="width: 50%; margin-left: 25%; font-size: 17px">
         <strong>Meal Name:</strong> {{meal.mealName}}
         <strong>Restraunt Name:</strong> {{meal.restName}}
         <strong>Meal Size:</strong> {{meal.size}}
         <strong>Meal Price:</strong> {{meal.price | currency}}
         <button class=" btn-primary"  ng-click = "showInfo(meal.restId)" class="btn btn-primary">More Info</button>   
       </div>
-          <div class="well" style="padding: 20px; width: 50%; margin-left: 25%" ng-show="showDesc === true" ng-repeat = "resturent in resturents" >
+          <div class="well" style="padding: 20px; width: 50%; margin-left: 25%; font-size: 15px" ng-show="showDesc === true" ng-repeat = "resturent in resturents" >
             <h3>Restaurant Info</h3>
             <strong>resturent address:</strong> {{resturent.address}}
             <strong>Restraunt Name:</strong> {{resturent.name}}
