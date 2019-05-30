@@ -164,7 +164,6 @@ app.post('/registered', function(req, res, next) {
 	res.redirect('http://localhost:3000/ThankYouPage.html');
 });
 
-
 app.post('/login', function(req, res) {
 	var username = req.body.UserName;
 	var password = req.body.Password;

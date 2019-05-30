@@ -21,9 +21,6 @@ angular.module('app').controller('food', function($scope, $http, $location, $roo
 	};
 
 	$scope.showInfo = function(restId) {
-		// 	console.log(restId)
-
-		// }
 		$http({
 			method: 'post',
 			url: '/getRest',
