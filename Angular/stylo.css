@@ -4,9 +4,9 @@
 .all {
 	border: 2px solid black;
 	width: 40%;
-	padding: 20px 0px;
+	padding: 20px 10px;
 	margin: 50px 450px;
-	background: #33495e;
+	background: #517291;
 	opacity: .9;
 }
 .form-group {

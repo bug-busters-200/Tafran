@@ -95,8 +95,8 @@ app.use(express.static('Angular'));
 
 app.post('/registered', function(req, res, next) {
 	const User = req.body.price;
-	// req.check('UserName', 'Invald Email Plese Try Another One').isEmail();
-	// req.check('Password', 'The Password Should be Numbers').isNumeric().isLength({ min: 8 });
+	req.check('UserName', 'Invald Email Plese Try Another One').isEmail();
+	req.check('Password', 'The Password Should be Numbers').isNumeric().isLength({ min: 8 });
 	var err = req.validationErrors();
 
 	let newRestaurant = {
@@ -107,19 +107,19 @@ app.post('/registered', function(req, res, next) {
 		TheRestaurant: req.body.Restaurant,
 		MealsandPrice: req.body.PriceandMeal
 	};
-	// const Check = `SELECT * From userInfo Where Name = ${req.body.UserName}`;
-	// const added = 'INSERT INTO usersInfo SET ?';
+	const Check = `SELECT * From userInfo Where Name = ${req.body.UserName}`;
+	const added = 'INSERT INTO usersInfo SET ?';
 
 	console.log(newRestaurant);
 
-	// UsersConection.query(added, newRestaurant, (err, result) => {
-	// 	console.log(newRestaurant);
-	// 	if (err) throw err;
-	// 	console.log(result);
-	// 	console.log('User Was Added');
-	// });
+	UsersConection.query(added, newRestaurant, (err, result) => {
+		console.log(newRestaurant);
+		if (err) throw err;
+		console.log(result);
+		console.log('User Was Added');
+	});
 
-	// SEND EMAIL START
+	SEND EMAIL START
 	const nodemailer = require('nodemailer');
 
 	var transporter = nodemailer.createTransport({
